@@ -10,9 +10,10 @@ class MyApp(QWidget):
         # 창 제목 설정
         self.setWindowTitle('GA-lab_Mario')
         # 창 띄우기
+        self.label = QLabel(self)
+        self.label.setGeometry(200, 150, 50, 100)
         self.show()
-        label=QLabel(self)
-        label.setGeometry(200,150,50,100)
+
 
     def keyPressEvent(self, event):
         key=event.key()

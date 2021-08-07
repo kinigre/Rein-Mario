@@ -32,53 +32,37 @@ class MyApp(QWidget):
         painter = QPainter()
         painter.begin(self)
 
-        #1
-        painter.drawRect(0, 51, 50, 50)
-        painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
-        painter.setBrush(QBrush(QColor.fromRgb(255, 0, 0)))
-
-        #2
+        #1사각형
+        painter.setBrush(QBrush(qt.blue))
         painter.drawRect(0, 0, 50, 50)
-        painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
-        painter.setBrush(QBrush(QColor.fromRgb(255, 255, 255)))
-
-        #3
-        painter.drawRect(51, 51, 50, 50)
-        painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
-        painter.setBrush(QBrush(QColor.fromRgb(255, 255, 255)))
-
-        #4
+        painter.setBrush(qt.NoBrush)
+        painter.drawRect(0, 51, 50, 50)
         painter.drawRect(51, 0, 50, 50)
+        painter.setBrush(QBrush(qt.red))
+        painter.drawRect(51, 51, 50, 50)
+        painter.setBrush(qt.NoBrush)
         painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
-        painter.setBrush(QBrush(QColor.fromRgb(0, 0, 255)))
 
-        # # 팬 설정()테두리
-        # painter.setPen(QPen(qt.blue, 2.0, qt.SolidLine))
-        # # 선그리기
-        # painter.drawLine(0, 10, 200, 100)
-        #
-        #
-        # # RGB 색상으로 펜 설정
-        # painter.setPen(QPen(QColor.fromRgb(255, 0, 0), 3.0, qt.solidLine))
-        #
-        # # 브러쉬 설정()체우기
-        # painter.setBrush(QBrush(qt.blue))
-        #
-        # # 직사각형
-        # painter.drawRect(0, 100, 100, 100)
-        # painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
-        #
-        # # RGB 색상으로 브러쉬 설정
-        # painter.setBrush(QBrush(QColor.fromRgb(0, 255, 0)))
-        #
-        # # 타원 그리기
-        # painter.drawEllipse(100, 100, 100, 100)
-        #
-        # painter.setPen(QPen(qt.cyan, 1.0, qt.SolidLine))
-        # painter.setBrush(qt.NoBrush)
-        #
-        # # 텍스트 그리기
-        # painter.drawText(0, 250, 'abcd')
+        #2뉴런
+        painter.setPen(QPen(qt.red, 2.0, qt.SolidLine))
+        painter.drawLine(25,175,75,275)
+        painter.setPen(QPen(qt.blue, 2.0, qt.SolidLine))
+        painter.drawLine(75, 175, 75, 275)
+        painter.setPen(QPen(qt.red, 2.0, qt.SolidLine))
+        painter.drawLine(125 ,175, 75, 275)
+
+        painter.setPen(QPen(qt.black, 1.0, qt.SolidLine))
+        painter.setBrush(QBrush(qt.cyan))
+        painter.drawEllipse(0, 150, 50, 50)
+        painter.setBrush(qt.NoBrush)
+        painter.setBrush(QBrush(qt.white))
+        painter.drawEllipse(50, 150, 50, 50)
+        painter.setBrush(qt.NoBrush)
+        painter.setBrush(QBrush(qt.cyan))
+        painter.drawEllipse(100, 150, 50, 50)
+        painter.setBrush(qt.NoBrush)
+        painter.setBrush(QBrush(qt.gray))
+        painter.drawEllipse(50, 250, 50, 50)
 
         painter.end()
 

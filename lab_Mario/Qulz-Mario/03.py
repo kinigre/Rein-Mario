@@ -4,29 +4,34 @@ from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import Qt as qt
 import retro
 import sys
-import numpy as np
 
 class GameScreen(QWidget):
     def __init__(self):
         super(GameScreen,self).__init__()
-        self.setFixedSize(300, 300)
-        self.setWindowTitle('마리오 학습')
-
         # 게임 환경 생성
         env = retro.make(game="SuperMarioBros-nes", state='Level1-1')
         # 새 게임 시작
         env.reset()
         # 화면 가져오기
         screen = env.get_screen()
-        label_img=QLabel(self)
-        img=np.array([[[screen.shape[0]]], [[screen.shape[1]]]])
-        q_image = QImage(img, img.shape[1], img.shape[0], QImage.Format_RGB888)
-        pixmap = QPixmap(q_image)
-        pixmap = pixmap.scaled(100, 100, qt.IgnoreAspectRatio)
+        screenSize=int(input('몇배 키우실건가요?:'))
+        # 창 크기 고정
+        self.setFixedSize(screen.shape[0]*screenSize, screen.shape[1]*screenSize)
+        # 창 제목 설정
+        self.setWindowTitle('마리오 학습')
 
-        label_img.setPixmap(pixmap)
-        label_img.setGeometry(0, 0, 100, 100)
+        label_image = QLabel(self)
+        image = screen
+        qimage = QImage(image, image.shape[1], image.shape[0], QImage.Format_RGB888)
+        pixmap = QPixmap(qimage)
+        pixmap = pixmap.scaled(screen.shape[0]*screenSize, screen.shape[1]*screenSize, qt.IgnoreAspectRatio)
+
+        label_image.setPixmap(pixmap)
+        label_image.setGeometry(0,0, screen.shape[0]*screenSize, screen.shape[1]*screenSize)
+
+        # 창 띄우기
         self.show()
+
 
 if __name__=='__main__':
     app = QApplication(sys.argv)
