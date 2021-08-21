@@ -58,6 +58,8 @@ class MarioGame(QWidget):
             self.press_buttons[7] = 1
         elif key == Qt.Key_A:
             self.press_buttons[8] = 1
+        if key == Qt.Key_R:
+            self.env.reset()
 
         # 키를 뗄 때
 
