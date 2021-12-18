@@ -11,4 +11,4 @@ ram = env.get_ram()
 # 1 - Yes (not so much drawn as "active" or something)
 enemy_drawn = ram[0x000F:0x0013+1]
 
-print(enemy_drawn)
+print()
