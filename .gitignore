@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*$py.class
+final/
+lab_AI/
+lab_Mario/
+PyQt/
